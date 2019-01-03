@@ -1,0 +1,14 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+requests = "~=2.20"
+
+[dev-packages]
+pytest = "~=4.0"
+pytest-mock = "~=1.10"
+
+[requires]
+python_version = "3.7"
