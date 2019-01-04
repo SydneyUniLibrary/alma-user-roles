@@ -8,6 +8,7 @@ import sys
 import alma
 
 from .get_user_roles import get_user_roles
+from .replace_user_roles import replace_user_roles
 from .verify_user_roles import verify_user_roles
 
 
@@ -36,6 +37,13 @@ def parse_args():
                            help='Including inactive user roles. Excludes inactive user roles by default.')
     subparser.set_defaults(cmd='get')
 
+    subparser = commands_subparsers.add_parser('replace', help='replace the roles of users with the template')
+    subparser.add_argument('users', metavar='ID', nargs='+',
+                           help='The primary id or one of the identifiers of each user.')
+    subparser.add_argument('--template', metavar='PATH', type=argparse.FileType(),
+                           help='Use the roles stores in file at PATH to verify the users, defaults to stdin')
+    subparser.set_defaults(cmd='replace')
+
     subparser = commands_subparsers.add_parser('verify', help='verify that the roles of users match a template')
     subparser.add_argument('users', metavar='ID', nargs='+',
                            help='The primary id or one of the identifiers of each user.')
@@ -62,6 +70,8 @@ def main():
 
     if args.cmd == 'get':
         get_user_roles(api_client, args.user, args.include_inactive, args.verbose)
+    elif args.cmd == 'replace':
+        replace_user_roles(api_client, args.users, args.template)
     elif args.cmd == 'verify':
         verify_user_roles(api_client, args.users, args.template, args.include_inactive, args.ignore_extras)
 
