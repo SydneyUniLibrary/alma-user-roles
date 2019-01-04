@@ -1,5 +1,5 @@
 # user-roles
-Maintains the roles in Alma's users
+Maintains the roles in Alma's users.
 
 
 

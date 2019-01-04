@@ -3,6 +3,9 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 name = "pypi"
 
+[scripts]
+user-roles = "python3 -m user_roles"
+
 [packages]
 requests = "~=2.20"
 
