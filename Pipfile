@@ -7,11 +7,11 @@ name = "pypi"
 user-roles = "python3 -m user_roles"
 
 [packages]
-requests = "~=2.20"
+requests = "~=2.21.0"
 
 [dev-packages]
-pytest = "~=4.0"
-pytest-mock = "~=1.10"
+pytest = "~=4.4.0"
+pytest-mock = "~=1.10.4"
 
 [requires]
 python_version = "3.7"
