@@ -5,12 +5,12 @@ import logging
 import os
 import sys
 
-import alma
 import alma_sdk
 import alma_sdk.rest
 
 from .get_user_roles import get_user_roles
 from .replace_user_roles import replace_user_roles
+from .set_job_category import set_job_category
 from .verify_user_roles import verify_user_roles
 
 
@@ -46,6 +46,13 @@ def parse_args():
                            help='Use the roles stores in file at PATH to verify the users, defaults to stdin')
     subparser.set_defaults(cmd='replace')
 
+    subparser = commands_subparsers.add_parser('set-job-category', help='set the job category of users')
+    subparser.add_argument('users', metavar='ID', nargs='+',
+                           help='The primary id or one of the identifiers of each user.')
+    subparser.add_argument('--job-category', '-c', metavar='CODE',
+                           help='The CODE of the job category to set on the users')
+    subparser.set_defaults(cmd='set-job-category')
+
     subparser = commands_subparsers.add_parser('verify', help='verify that the roles of users match a template')
     subparser.add_argument('users', metavar='ID', nargs='+',
                            help='The primary id or one of the identifiers of each user.')
@@ -77,6 +84,8 @@ def main():
         get_user_roles(api_client, args.user, args.include_inactive, args.verbose)
     elif args.cmd == 'replace':
         replace_user_roles(api_client, args.users, args.template)
+    elif args.cmd == 'set-job-category':
+        set_job_category(api_client, args.users, args.job_category)
     elif args.cmd == 'verify':
         verify_user_roles(api_client, args.users, args.template, args.include_inactive, args.ignore_extras)
 

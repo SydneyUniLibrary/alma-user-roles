@@ -1,9 +1,24 @@
 # -*- coding: utf-8 -*-
 
-
 __all__ = [
-    'is_user_role_active'
+    'get_role_type_value',
+    'get_scope_value',
+    'is_user_role_active',
 ]
+
+
+def get_role_type_value(user_role: dict) -> str:
+    try:
+        return user_role['role_type']['value']
+    except KeyError:
+        return ''
+
+
+def get_scope_value(user_role: dict) -> str:
+    try:
+        return user_role['scope']['value']
+    except KeyError:
+        return ''
 
 
 def is_user_role_active(user_role: dict) -> bool:
