@@ -10,8 +10,8 @@ user-roles = "python3 -m user_roles"
 requests = "~=2.21.0"
 
 [dev-packages]
-pytest = "~=4.4.0"
-pytest-mock = "~=1.10.4"
+pytest = "*"
+pytest-mock = "*"
 
 [requires]
 python_version = "3.7"
