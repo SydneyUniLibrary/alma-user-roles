@@ -7,7 +7,7 @@ name = "pypi"
 user-roles = "python3 -m user_roles"
 
 [packages]
-requests = "~=2.21.0"
+urllib3 = "~=1.15.1"
 
 [dev-packages]
 pytest = "*"
