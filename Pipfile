@@ -7,7 +7,10 @@ name = "pypi"
 user-roles = "python3 -m user_roles"
 
 [packages]
-urllib3 = "~=1.15.1"
+certifi = ">=14.5.14"
+python_dateutil = ">= 2.5.3"
+six = ">=1.10"
+urllib3 = ">=1.15.1"
 
 [dev-packages]
 pytest = "*"

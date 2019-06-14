@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "9df36fbbec8534326d3f9910f3711d2630b2f1de6f56b7f17e708cce347699c7"
+            "sha256": "2e7adee6ce57bce6aa0ecf806610baabda686b8a550219421e8d910081fd6975"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -16,13 +16,37 @@
         ]
     },
     "default": {
-        "urllib3": {
+        "certifi": {
             "hashes": [
-                "sha256:105b33577a379c1c881821d43b97d1a870f37a8f4904151f56ddeb95b38830ca",
-                "sha256:d0a1dc60433f7e9b90b4f085f1d45753174b4594558b29eda0009abe0b82da4c"
+                "sha256:59b7658e26ca9c7339e00f8f4636cdfe59d34fa37b9b04f6f9e9926b3cece1a5",
+                "sha256:b26104d6835d1f5e49452a26eb2ff87fe7090b89dfcaee5ea2212697e1e1d7ae"
             ],
             "index": "pypi",
-            "version": "==1.15.1"
+            "version": "==2019.3.9"
+        },
+        "python-dateutil": {
+            "hashes": [
+                "sha256:7e6584c74aeed623791615e26efd690f29817a27c73085b78e4bad02493df2fb",
+                "sha256:c89805f6f4d64db21ed966fda138f8a5ed7a4fdbc1a8ee329ce1b74e3c74da9e"
+            ],
+            "index": "pypi",
+            "version": "==2.8.0"
+        },
+        "six": {
+            "hashes": [
+                "sha256:3350809f0555b11f552448330d0b52d5f24c91a322ea4a15ef22629740f3761c",
+                "sha256:d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
+            ],
+            "index": "pypi",
+            "version": "==1.12.0"
+        },
+        "urllib3": {
+            "hashes": [
+                "sha256:b246607a25ac80bedac05c6f282e3cdaf3afb65420fd024ac94435cabe6e18d1",
+                "sha256:dbe59173209418ae49d485b87d1681aefa36252ee85884c31346debd19463232"
+            ],
+            "index": "pypi",
+            "version": "==1.25.3"
         }
     },
     "develop": {
@@ -104,6 +128,7 @@
                 "sha256:3350809f0555b11f552448330d0b52d5f24c91a322ea4a15ef22629740f3761c",
                 "sha256:d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
             ],
+            "index": "pypi",
             "version": "==1.12.0"
         },
         "wcwidth": {
