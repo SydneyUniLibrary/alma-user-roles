@@ -6,12 +6,13 @@ import logging
 import typing
 
 import alma
+import alma_sdk
 
 
 logger = logging.getLogger('user_roles.verify_user_roles')
 
 
-def verify_user_roles(alma_client: alma.ApiClient, user_id_list: typing.List[str], template_file,
+def verify_user_roles(api_client: alma_sdk.ApiClient, user_id_list: typing.List[str], template_file,
                       include_inactive: bool = False, ignore_extra: bool = False):
     template = json.load(template_file)
     logger.debug('Template: %r', template)
@@ -20,7 +21,7 @@ def verify_user_roles(alma_client: alma.ApiClient, user_id_list: typing.List[str
         logger.warning('--ignore-extra has not been implemented yet')
     for user_id in user_id_list:
         logger.debug('Getting roles of user %s', user_id)
-        user = alma_client.get_user_details(user_id)
+        user = alma_sdk.UsersApi(api_client).getalmawsv1usersuser_id(user_id)
         primary_id = user['primary_id']
         logger.debug('Got user %r', primary_id)
         user_role_list = [

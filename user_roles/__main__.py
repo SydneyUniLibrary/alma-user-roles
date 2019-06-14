@@ -6,6 +6,8 @@ import os
 import sys
 
 import alma
+import alma_sdk
+import alma_sdk.rest
 
 from .get_user_roles import get_user_roles
 from .replace_user_roles import replace_user_roles
@@ -66,7 +68,10 @@ def main():
     logging.getLogger('user_roles').setLevel(logging.DEBUG if args.verbose else logging.INFO)
     logger.debug('Start run: args = %r', args)
 
-    api_client = alma.RequestsApiClient(api_server=args.alma_api_server, api_key=args.alma_api_key)
+    configuration = alma_sdk.Configuration()
+    configuration.api_key['apikey'] = args.alma_api_key
+    configuration.host = f'https://{args.alma_api_server}'
+    api_client = alma_sdk.ApiClient(configuration)
 
     if args.cmd == 'get':
         get_user_roles(api_client, args.user, args.include_inactive, args.verbose)

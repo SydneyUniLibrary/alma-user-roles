@@ -6,15 +6,16 @@ import json
 import sys
 
 import alma
+import alma_sdk
 
 
 logger = logging.getLogger('user_roles.get_user_roles')
 
 
-def get_user_roles(alma_client: alma.ApiClient, user_id: str,
+def get_user_roles(api_client: alma_sdk.ApiClient, user_id: str,
                    include_inactive: bool = False, verbose: bool = False):
     logger.debug('Getting roles of user %s', user_id)
-    user = alma_client.get_user_details(user_id)
+    user = alma_sdk.UsersApi(api_client).getalmawsv1usersuser_id(user_id)
     primary_id = user['primary_id']
     logger.debug('Got user %r', primary_id)
     user_role_list = [
